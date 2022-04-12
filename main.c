@@ -1,49 +1,51 @@
-#include "header.h"
-/**
- *main - get commands to execute
- *@ac: number of arguments unused
- *@ar: arguments unused
- *@envp: environment
- *Return: nothing
- */
-int main(int ac, char *ar[], char **envp)
-{
-	char *buffer = NULL;
-	char  *av[10];
-	int pos = 0, g;
-	size_t size = 0;
-	(void)ac;
-	(void)ar;
+#include "shell.h"
 
-	do {
-		signal(SIGINT, _signal);
-		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "#cisfun$ ", 10);
-		g = getline(&buffer, &size, stdin);
-		if (!buffer)
-			free(buffer);
-		if (g == EOF)
+/**
+*main- Shell program
+*@ac: integer
+*@av: double pointer
+*@env: double pointer
+*Return: Shell functions
+*/
+
+int main(__attribute__((unused))int ac, char **av, char **env)
+{
+	pid_t child;
+	char *read, *get_path, *del = " \n";
+	char **paths;
+	int status;
+	list_t *head;
+
+	head = NULL;
+	get_path = _getenv("PATH", env);
+	paths = parse_line(get_path, ":");
+	list_creator(paths, &head);
+	free(get_path);
+
+	while (1)
+	{
+		read = read_line(head);
+		av = parse_line(read, del);
+		built_in_command(av, env, read, head);
+		av[0] = concatenate_list(&head, av[0]);
+
+		child = fork();
+		if (child == 0)
 		{
-			if (isatty(STDIN_FILENO))
-				write(STDOUT_FILENO, "\n", 1);
-			free(buffer);
-			exit(0);
+			if (av[0] && (execve(av[0], av, NULL) == -1))
+				perror("Error");
+			exit(1);
+
 		}
-		if (_strcmp(buffer, "exit\n") == 0)
+		else if (child == -1)
+			perror("FORK FAILURE\n");
+		else
 		{
-			free(buffer);
-			exit(2);
+			wait(&status);
 		}
-		else if (_strcmp(buffer, "env\n") == 0)
-			print_e(envp);
-		_split(buffer, av);
-		if ((*buffer != '\n') && av[0])
-			_exec(pos, av);
-		while (pos < 10)
-			pos++;
-	} while (1);
-	free(buffer);
-	free(av);
-	free(envp);
-	return (EXIT_SUCCESS);
+		free(read);
+		free(av[0]);
+		free(av);
+	}
+	exit(0);
 }
