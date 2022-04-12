@@ -1,6 +1,6 @@
 /*
  * File: linkedlist.c
- * Auth: Eugene Madzaga and Elizabeth Mashilo
+ * Auth: Danisile Johannah and Noluyolo Ndungane
  */
 
 #include "shell.h"
