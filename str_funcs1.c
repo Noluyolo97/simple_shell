@@ -1,6 +1,7 @@
 /*
  * File: str_funcs1.c
- * Auth: Danisile Johannah and Noluyolo Ndungane
+ * Auth: Noluyolo Ndungane
+ *       Danisile Johannah
  */
 
 #include "shell.h"

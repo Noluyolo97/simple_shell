@@ -1,8 +1,8 @@
 /*
- * File: builtin.c
- * Auth: Noluyolo Ndungane and Danisile Johannah
+ * File: environ.c
+ * Auth: Noluyolo Ndungane
+ *       Danisile Johannah
  */
-
 
 #include "shell.h"
 

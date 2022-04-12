@@ -1,7 +1,7 @@
 /*
  * File: builtin.c
- * Auth: Noluyolo Ndungane and Danisile Johannah
- * 
+ * Auth: Noluyolo Ndungane
+ *       Danisile Johannah
  */
 
 #include "shell.h"

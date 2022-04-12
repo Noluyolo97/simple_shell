@@ -1,6 +1,7 @@
 /*
- * File: builtin.c
- * Auth: Noluyolo Ndungane and Danisile Johannah
+ * File: err_msgs2.c
+ * Auth: Noluyolo Ndungane
+ *       Danisile Johannah
  */
 
 #include "shell.h"

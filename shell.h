@@ -3,7 +3,8 @@
 
 /*
  * File: shell.h
- * Auth: Danisile Johannah and Noluyolo Ndungane
+ * Auth: Noluyolo Ndungane
+ *       Danisile Johannah
  */
 
 #include <fcntl.h>

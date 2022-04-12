@@ -1,6 +1,7 @@
 /*
  * File: input_helpers.c
- * Auth: Danisile Johannah and Noluyolo Ndungane
+ * Auth: Noluyolo Ndungane
+ *       Danisile Johannah
  */
 
 #include "shell.h"
