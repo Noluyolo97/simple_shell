@@ -1,6 +1,6 @@
 /*
  * File: builtin.c
- * Auth: Eugene Madzaga and Elizabeth Mashilo
+ * Auth: Noluyolo Ndungane and Danisile Johannah
  */
 
 #include "shell.h"
