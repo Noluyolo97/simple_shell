@@ -196,4 +196,3 @@ int shellby_help(char **args, char __attribute__((__unused__)) **front)
 
 	return (0);
 }
-D
